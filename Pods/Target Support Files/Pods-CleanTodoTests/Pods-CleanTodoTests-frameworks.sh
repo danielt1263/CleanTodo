@@ -84,8 +84,10 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-CleanTodoTests/RxSwift.framework"
+  install_framework "Pods-CleanTodoTests/OMGHTTPURLRQ.framework"
+  install_framework "Pods-CleanTodoTests/PromiseKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-CleanTodoTests/RxSwift.framework"
+  install_framework "Pods-CleanTodoTests/OMGHTTPURLRQ.framework"
+  install_framework "Pods-CleanTodoTests/PromiseKit.framework"
 fi

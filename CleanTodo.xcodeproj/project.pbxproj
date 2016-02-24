@@ -7,13 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		727845B51C7BFFE500B03A94 /* UIViewControllerPromises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727845B41C7BFFE500B03A94 /* UIViewControllerPromises.swift */; };
 		729047EB1C79E122000A2770 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729047EA1C79E122000A2770 /* AppDelegate.swift */; };
-		729047ED1C79E122000A2770 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729047EC1C79E122000A2770 /* ViewController.swift */; };
 		729047F01C79E122000A2770 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 729047EE1C79E122000A2770 /* Main.storyboard */; };
 		729047F31C79E122000A2770 /* CleanTodo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 729047F11C79E122000A2770 /* CleanTodo.xcdatamodeld */; };
 		729047F51C79E122000A2770 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 729047F41C79E122000A2770 /* Assets.xcassets */; };
 		729047F81C79E122000A2770 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 729047F61C79E122000A2770 /* LaunchScreen.storyboard */; };
 		729048031C79E122000A2770 /* CleanTodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729048021C79E122000A2770 /* CleanTodoTests.swift */; };
+		729048131C79E69A000A2770 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729048121C79E69A000A2770 /* DataStore.swift */; };
+		729048161C79E7A7000A2770 /* TodoItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729048141C79E7A7000A2770 /* TodoItem+CoreDataProperties.swift */; };
+		729048171C79E7A7000A2770 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729048151C79E7A7000A2770 /* TodoItem.swift */; };
+		729048191C79E7D4000A2770 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729048181C79E7D4000A2770 /* Todo.swift */; };
+		7290481B1C79EC98000A2770 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7290481A1C79EC98000A2770 /* ListViewController.swift */; };
+		7290481D1C79F10B000A2770 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7290481C1C79F10B000A2770 /* AddViewController.swift */; };
+		729048211C79FADC000A2770 /* UIImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729048201C79FADC000A2770 /* UIImageEffects.swift */; };
+		729048391C7A5D0D000A2770 /* AddTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729048381C7A5D0D000A2770 /* AddTodo.swift */; };
+		7290483C1C7A988B000A2770 /* NSCalendarAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7290483B1C7A988B000A2770 /* NSCalendarAdditions.swift */; };
+		7290483E1C7A9BD6000A2770 /* ListTodos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7290483D1C7A9BD6000A2770 /* ListTodos.swift */; };
+		72C1D7E61C7D31FC005A7478 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C1D7E51C7D31FC005A7478 /* AppStore.swift */; };
+		72C1D7EF1C7D32AF005A7478 /* Redux.h in Headers */ = {isa = PBXBuildFile; fileRef = 72C1D7EE1C7D32AF005A7478 /* Redux.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		72C1D8011C7D32AF005A7478 /* Redux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C1D7EC1C7D32AF005A7478 /* Redux.framework */; };
+		72C1D8021C7D32AF005A7478 /* Redux.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 72C1D7EC1C7D32AF005A7478 /* Redux.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		72C1D80B1C7D32E8005A7478 /* Redux.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C1D80A1C7D32E8005A7478 /* Redux.swift */; };
+		72C1D80E1C7D3B63005A7478 /* PresentationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C1D80C1C7D3B63005A7478 /* PresentationStack.swift */; };
+		72C1D80F1C7D3B63005A7478 /* PresentationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C1D80D1C7D3B63005A7478 /* PresentationState.swift */; };
+		72C1D8131C7D4357005A7478 /* AddPresentationTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C1D8121C7D4357005A7478 /* AddPresentationTransition.swift */; };
+		72C3C6EF1C7DE27500A48740 /* AddDismissalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C3C6EE1C7DE27500A48740 /* AddDismissalTransition.swift */; };
 		8FE3876E2B9FC36FA56178C1 /* Pods_CleanTodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 330308C9A0D0BC4EFCEB6DF0 /* Pods_CleanTodo.framework */; };
 		F6299204F4D5DB12815BF38A /* Pods_CleanTodoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA8484985B40A8C535BD41B /* Pods_CleanTodoTests.framework */; };
 /* End PBXBuildFile section */
@@ -26,16 +45,37 @@
 			remoteGlobalIDString = 729047E61C79E122000A2770;
 			remoteInfo = CleanTodo;
 		};
+		72C1D7FF1C7D32AF005A7478 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 729047DF1C79E122000A2770 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 72C1D7EB1C7D32AF005A7478;
+			remoteInfo = Redux;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		72C1D8061C7D32AF005A7478 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				72C1D8021C7D32AF005A7478 /* Redux.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		17617B62583B69E77A2A1C68 /* Pods-CleanTodo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanTodo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanTodo/Pods-CleanTodo.debug.xcconfig"; sourceTree = "<group>"; };
 		1D5AE6F535F645E5397044E4 /* Pods-CleanTodo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanTodo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CleanTodo/Pods-CleanTodo.release.xcconfig"; sourceTree = "<group>"; };
 		330308C9A0D0BC4EFCEB6DF0 /* Pods_CleanTodo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanTodo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3528128E839C821687D2A59B /* Pods-CleanTodoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanTodoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanTodoTests/Pods-CleanTodoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		727845B41C7BFFE500B03A94 /* UIViewControllerPromises.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerPromises.swift; sourceTree = "<group>"; };
 		729047E71C79E122000A2770 /* CleanTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		729047EA1C79E122000A2770 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		729047EC1C79E122000A2770 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		729047EF1C79E122000A2770 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		729047F21C79E122000A2770 /* CleanTodo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CleanTodo.xcdatamodel; sourceTree = "<group>"; };
 		729047F41C79E122000A2770 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -44,6 +84,25 @@
 		729047FE1C79E122000A2770 /* CleanTodoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanTodoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		729048021C79E122000A2770 /* CleanTodoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanTodoTests.swift; sourceTree = "<group>"; };
 		729048041C79E122000A2770 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		729048121C79E69A000A2770 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		729048141C79E7A7000A2770 /* TodoItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TodoItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		729048151C79E7A7000A2770 /* TodoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
+		729048181C79E7D4000A2770 /* Todo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		7290481A1C79EC98000A2770 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		7290481C1C79F10B000A2770 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		729048201C79FADC000A2770 /* UIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageEffects.swift; sourceTree = "<group>"; };
+		729048381C7A5D0D000A2770 /* AddTodo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTodo.swift; sourceTree = "<group>"; };
+		7290483B1C7A988B000A2770 /* NSCalendarAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCalendarAdditions.swift; sourceTree = "<group>"; };
+		7290483D1C7A9BD6000A2770 /* ListTodos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTodos.swift; sourceTree = "<group>"; };
+		72C1D7E51C7D31FC005A7478 /* AppStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
+		72C1D7EC1C7D32AF005A7478 /* Redux.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Redux.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		72C1D7EE1C7D32AF005A7478 /* Redux.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Redux.h; sourceTree = "<group>"; };
+		72C1D7F01C7D32AF005A7478 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72C1D80A1C7D32E8005A7478 /* Redux.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Redux.swift; sourceTree = "<group>"; };
+		72C1D80C1C7D3B63005A7478 /* PresentationStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationStack.swift; sourceTree = "<group>"; };
+		72C1D80D1C7D3B63005A7478 /* PresentationState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationState.swift; sourceTree = "<group>"; };
+		72C1D8121C7D4357005A7478 /* AddPresentationTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPresentationTransition.swift; sourceTree = "<group>"; };
+		72C3C6EE1C7DE27500A48740 /* AddDismissalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDismissalTransition.swift; sourceTree = "<group>"; };
 		7F1F7FDCF0AD6F28E8936649 /* Pods-CleanTodoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanTodoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CleanTodoTests/Pods-CleanTodoTests.release.xcconfig"; sourceTree = "<group>"; };
 		9CA8484985B40A8C535BD41B /* Pods_CleanTodoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanTodoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -54,6 +113,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FE3876E2B9FC36FA56178C1 /* Pods_CleanTodo.framework in Frameworks */,
+				72C1D8011C7D32AF005A7478 /* Redux.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +122,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6299204F4D5DB12815BF38A /* Pods_CleanTodoTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72C1D7E81C7D32AF005A7478 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +151,7 @@
 			children = (
 				729047E71C79E122000A2770 /* CleanTodo.app */,
 				729047FE1C79E122000A2770 /* CleanTodoTests.xctest */,
+				72C1D7EC1C7D32AF005A7478 /* Redux.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -91,10 +159,12 @@
 		729047E91C79E122000A2770 /* CleanTodo */ = {
 			isa = PBXGroup;
 			children = (
+				7290483A1C7A986A000A2770 /* UIKit Additions */,
 				7290480D1C79E34E000A2770 /* Entities */,
-				7290480E1C79E357000A2770 /* Services */,
 				7290480F1C79E360000A2770 /* Use Cases */,
+				7290480E1C79E357000A2770 /* Services */,
 				729048101C79E367000A2770 /* Interface */,
+				72C1D7ED1C7D32AF005A7478 /* Redux */,
 			);
 			path = CleanTodo;
 			sourceTree = "<group>";
@@ -111,6 +181,8 @@
 		7290480D1C79E34E000A2770 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				729048181C79E7D4000A2770 /* Todo.swift */,
+				72C1D7E51C7D31FC005A7478 /* AppStore.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -118,7 +190,7 @@
 		7290480E1C79E357000A2770 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				729048111C79E3AC000A2770 /* CoreData Service */,
+				729048111C79E3AC000A2770 /* DataStore */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -126,6 +198,8 @@
 		7290480F1C79E360000A2770 /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
+				729048381C7A5D0D000A2770 /* AddTodo.swift */,
+				7290483D1C7A9BD6000A2770 /* ListTodos.swift */,
 			);
 			name = "Use Cases";
 			sourceTree = "<group>";
@@ -133,8 +207,9 @@
 		729048101C79E367000A2770 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				72C1D8101C7D431F005A7478 /* View Controllers */,
 				729047EA1C79E122000A2770 /* AppDelegate.swift */,
-				729047EC1C79E122000A2770 /* ViewController.swift */,
+				7290481A1C79EC98000A2770 /* ListViewController.swift */,
 				729047EE1C79E122000A2770 /* Main.storyboard */,
 				729047F41C79E122000A2770 /* Assets.xcassets */,
 				729047F61C79E122000A2770 /* LaunchScreen.storyboard */,
@@ -143,12 +218,56 @@
 			name = Interface;
 			sourceTree = "<group>";
 		};
-		729048111C79E3AC000A2770 /* CoreData Service */ = {
+		729048111C79E3AC000A2770 /* DataStore */ = {
 			isa = PBXGroup;
 			children = (
+				729048121C79E69A000A2770 /* DataStore.swift */,
+				729048141C79E7A7000A2770 /* TodoItem+CoreDataProperties.swift */,
+				729048151C79E7A7000A2770 /* TodoItem.swift */,
 				729047F11C79E122000A2770 /* CleanTodo.xcdatamodeld */,
 			);
-			name = "CoreData Service";
+			name = DataStore;
+			sourceTree = "<group>";
+		};
+		7290483A1C7A986A000A2770 /* UIKit Additions */ = {
+			isa = PBXGroup;
+			children = (
+				729048201C79FADC000A2770 /* UIImageEffects.swift */,
+				7290483B1C7A988B000A2770 /* NSCalendarAdditions.swift */,
+				727845B41C7BFFE500B03A94 /* UIViewControllerPromises.swift */,
+			);
+			name = "UIKit Additions";
+			sourceTree = "<group>";
+		};
+		72C1D7ED1C7D32AF005A7478 /* Redux */ = {
+			isa = PBXGroup;
+			children = (
+				72C1D7EE1C7D32AF005A7478 /* Redux.h */,
+				72C1D80A1C7D32E8005A7478 /* Redux.swift */,
+				72C1D80C1C7D3B63005A7478 /* PresentationStack.swift */,
+				72C1D80D1C7D3B63005A7478 /* PresentationState.swift */,
+				72C1D7F01C7D32AF005A7478 /* Info.plist */,
+			);
+			name = Redux;
+			path = ../Redux;
+			sourceTree = "<group>";
+		};
+		72C1D8101C7D431F005A7478 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				72C1D8111C7D432B005A7478 /* Add View Controller */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		72C1D8111C7D432B005A7478 /* Add View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7290481C1C79F10B000A2770 /* AddViewController.swift */,
+				72C1D8121C7D4357005A7478 /* AddPresentationTransition.swift */,
+				72C3C6EE1C7DE27500A48740 /* AddDismissalTransition.swift */,
+			);
+			name = "Add View Controller";
 			sourceTree = "<group>";
 		};
 		AA19BAC5A38ACF21E9742327 /* Pods */ = {
@@ -173,6 +292,17 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		72C1D7E91C7D32AF005A7478 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72C1D7EF1C7D32AF005A7478 /* Redux.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		729047E61C79E122000A2770 /* CleanTodo */ = {
 			isa = PBXNativeTarget;
@@ -184,10 +314,12 @@
 				729047E51C79E122000A2770 /* Resources */,
 				99787150FE866EF4539AB6D4 /* Embed Pods Frameworks */,
 				145950CAB3F9F33C2DFE7F5D /* Copy Pods Resources */,
+				72C1D8061C7D32AF005A7478 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				72C1D8001C7D32AF005A7478 /* PBXTargetDependency */,
 			);
 			name = CleanTodo;
 			productName = CleanTodo;
@@ -215,6 +347,24 @@
 			productReference = 729047FE1C79E122000A2770 /* CleanTodoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		72C1D7EB1C7D32AF005A7478 /* Redux */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72C1D8031C7D32AF005A7478 /* Build configuration list for PBXNativeTarget "Redux" */;
+			buildPhases = (
+				72C1D7E71C7D32AF005A7478 /* Sources */,
+				72C1D7E81C7D32AF005A7478 /* Frameworks */,
+				72C1D7E91C7D32AF005A7478 /* Headers */,
+				72C1D7EA1C7D32AF005A7478 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Redux;
+			productName = Redux;
+			productReference = 72C1D7EC1C7D32AF005A7478 /* Redux.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -231,6 +381,9 @@
 					729047FD1C79E122000A2770 = {
 						CreatedOnToolsVersion = 7.2.1;
 						TestTargetID = 729047E61C79E122000A2770;
+					};
+					72C1D7EB1C7D32AF005A7478 = {
+						CreatedOnToolsVersion = 7.2.1;
 					};
 				};
 			};
@@ -249,6 +402,7 @@
 			targets = (
 				729047E61C79E122000A2770 /* CleanTodo */,
 				729047FD1C79E122000A2770 /* CleanTodoTests */,
+				72C1D7EB1C7D32AF005A7478 /* Redux */,
 			);
 		};
 /* End PBXProject section */
@@ -265,6 +419,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		729047FC1C79E122000A2770 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72C1D7EA1C7D32AF005A7478 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -371,9 +532,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				727845B51C7BFFE500B03A94 /* UIViewControllerPromises.swift in Sources */,
+				729048211C79FADC000A2770 /* UIImageEffects.swift in Sources */,
+				729048191C79E7D4000A2770 /* Todo.swift in Sources */,
 				729047F31C79E122000A2770 /* CleanTodo.xcdatamodeld in Sources */,
-				729047ED1C79E122000A2770 /* ViewController.swift in Sources */,
+				72C3C6EF1C7DE27500A48740 /* AddDismissalTransition.swift in Sources */,
+				7290483E1C7A9BD6000A2770 /* ListTodos.swift in Sources */,
+				72C1D7E61C7D31FC005A7478 /* AppStore.swift in Sources */,
+				7290481D1C79F10B000A2770 /* AddViewController.swift in Sources */,
+				729048131C79E69A000A2770 /* DataStore.swift in Sources */,
+				72C1D8131C7D4357005A7478 /* AddPresentationTransition.swift in Sources */,
 				729047EB1C79E122000A2770 /* AppDelegate.swift in Sources */,
+				7290483C1C7A988B000A2770 /* NSCalendarAdditions.swift in Sources */,
+				729048171C79E7A7000A2770 /* TodoItem.swift in Sources */,
+				729048391C7A5D0D000A2770 /* AddTodo.swift in Sources */,
+				729048161C79E7A7000A2770 /* TodoItem+CoreDataProperties.swift in Sources */,
+				7290481B1C79EC98000A2770 /* ListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +559,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		72C1D7E71C7D32AF005A7478 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72C1D80E1C7D3B63005A7478 /* PresentationStack.swift in Sources */,
+				72C1D80F1C7D3B63005A7478 /* PresentationState.swift in Sources */,
+				72C1D80B1C7D32E8005A7478 /* Redux.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -392,6 +576,11 @@
 			isa = PBXTargetDependency;
 			target = 729047E61C79E122000A2770 /* CleanTodo */;
 			targetProxy = 729047FF1C79E122000A2770 /* PBXContainerItemProxy */;
+		};
+		72C1D8001C7D32AF005A7478 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 72C1D7EB1C7D32AF005A7478 /* Redux */;
+			targetProxy = 72C1D7FF1C7D32AF005A7478 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -501,6 +690,7 @@
 			baseConfigurationReference = 17617B62583B69E77A2A1C68 /* Pods-CleanTodo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = CleanTodo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.danielt1263.CleanTodo;
@@ -513,6 +703,7 @@
 			baseConfigurationReference = 1D5AE6F535F645E5397044E4 /* Pods-CleanTodo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = CleanTodo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.danielt1263.CleanTodo;
@@ -546,6 +737,49 @@
 			};
 			name = Release;
 		};
+		72C1D8041C7D32AF005A7478 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Redux/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.danielt1263.Redux;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		72C1D8051C7D32AF005A7478 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Redux/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.danielt1263.Redux;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -572,6 +806,15 @@
 			buildConfigurations = (
 				7290480B1C79E122000A2770 /* Debug */,
 				7290480C1C79E122000A2770 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		72C1D8031C7D32AF005A7478 /* Build configuration list for PBXNativeTarget "Redux" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72C1D8041C7D32AF005A7478 /* Debug */,
+				72C1D8051C7D32AF005A7478 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
