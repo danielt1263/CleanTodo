@@ -15,21 +15,31 @@ class AddViewController: UIViewController {
 	@IBOutlet weak var datePicker: UIDatePicker!
 	@IBOutlet weak var nameTextField: UITextField!
 	
-	var transitioningBackgroundView: UIView?
+	weak var transitioningBackgroundView: UIView!
 	
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
-	}
-
-	override func viewDidLoad() {
-		super.viewDidLoad()
 		modalPresentationStyle = .Custom
 		transitioningDelegate = self
 	}
+
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+		let recognizer = UITapGestureRecognizer(target: self, action: Selector("dismiss"))
+		transitioningBackgroundView.addGestureRecognizer(recognizer)
+		transitioningBackgroundView.userInteractionEnabled = true
+		nameTextField.becomeFirstResponder()
+	}
 	
 	@IBAction func cancelAction(_: AnyObject) {
+		dismiss()
+	}
+
+	func dismiss() {
+		view.endEditing(true)
 		appStore.dispatch(AddAction.Canceled)
 	}
+
 	private func warnUserWithMessage(message: String) {
 		let alert = UIAlertController(title: "Warning", message: message, preferredStyle: .Alert)
 		alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))

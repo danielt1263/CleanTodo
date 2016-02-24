@@ -16,12 +16,13 @@ class AddDismissalTransition: NSObject, UIViewControllerAnimatedTransitioning {
 	
 	func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
 		let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as! AddViewController
-		
-		let finalCenter = CGPoint(x: 160.0, y: (fromVC.view.bounds.height / 2.0) - 1000.0)
-		
+		let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+
+		let finalCenter = CGPoint(x: toVC.view.bounds.width / 2.0, y: (fromVC.view.bounds.height / 2.0) - fromVC.view.bounds.height - 20.0)
+		let blurView = fromVC.transitioningBackgroundView
 		UIView.animateWithDuration(self.transitionDuration(transitionContext), delay: 0, usingSpringWithDamping: 0.64, initialSpringVelocity: 0.22, options: [.CurveEaseIn, .AllowAnimatedContent], animations: { () -> Void in
 			fromVC.view.center = finalCenter
-			fromVC.transitioningBackgroundView?.alpha = 0
+			blurView.alpha = 0
 			}, completion: { _ in
 				fromVC.view.removeFromSuperview()
 				transitionContext.completeTransition(true)
