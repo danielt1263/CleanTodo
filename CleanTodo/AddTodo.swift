@@ -6,23 +6,34 @@
 //  Copyright © 2016 Daniel Tartaglia. All rights reserved.
 //
 
-import Foundation
-import Redux
+import UIKit
+import PromiseKit
 
 
-enum AddAction: Action {
-	case TapAddButton
-	case Canceled
-}
-
-
-func addReducer(inout state: AppState, action: Action) {
-	if let addAction = action as? AddAction {
-		switch addAction {
-		case .TapAddButton:
-			state.presentationState.pushViewController("AddViewController")
-		case .Canceled:
-			state.presentationState.popViewController()
+func addTodo(viewController: UIViewController) {
+	let addController = viewController.storyboard!.instantiateViewControllerWithIdentifier("AddViewController") as! AddViewController
+	firstly {
+		viewController.promisePresentViewController(addController, animated: true, completion: nil)
+	}
+	.then {
+		addController.waitForAdd()
+	}
+	.then { name, date in
+		print("name: \(name), date: \(date)")
+	}
+	.then {
+		addController.promiseDismissViewControllerAnimated(true, completion: nil)
+	}
+	.error { error in
+		switch error {
+		case AddError.AddCanceled:
+			addController.promiseDismissViewControllerAnimated(true, completion: nil)
+		default:
+			break
 		}
 	}
+}
+
+private func validateName(name: String, date: NSDate) -> Bool {
+	return !name.isEmpty
 }

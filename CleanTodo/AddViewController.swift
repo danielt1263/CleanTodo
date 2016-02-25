@@ -10,6 +10,10 @@ import UIKit
 import PromiseKit
 
 
+enum AddError: ErrorType {
+	case AddCanceled
+}
+
 class AddViewController: UIViewController {
 	
 	@IBOutlet weak var datePicker: UIDatePicker!
@@ -23,6 +27,13 @@ class AddViewController: UIViewController {
 		transitioningDelegate = self
 	}
 
+	func waitForAdd() -> Promise<(name: String, date: NSDate)>  {
+		pendingAdd = Promise<(name: String, date: NSDate)>.pendingPromise()
+		return pendingAdd!.promise
+	}
+	
+	private var pendingAdd: (promise: Promise<(name: String, date: NSDate)>, fulfill: ((name: String, date: NSDate)) -> Void, reject: (ErrorType) -> Void)?
+	
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
 		let recognizer = UITapGestureRecognizer(target: self, action: Selector("dismiss"))
@@ -35,9 +46,17 @@ class AddViewController: UIViewController {
 		dismiss()
 	}
 
-	func dismiss() {
+	@IBAction func saveAction(_: AnyObject) {
+		
+		let name = nameTextField.text ?? ""
+		let date = datePicker.date
+		
+		pendingAdd!.fulfill((name, date))
+	}
+	
+	private func dismiss() {
 		view.endEditing(true)
-		appStore.dispatch(AddAction.Canceled)
+		pendingAdd!.reject(AddError.AddCanceled)
 	}
 
 	private func warnUserWithMessage(message: String) {

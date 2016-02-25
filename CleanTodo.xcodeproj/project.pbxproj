@@ -24,7 +24,6 @@
 		729048391C7A5D0D000A2770 /* AddTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729048381C7A5D0D000A2770 /* AddTodo.swift */; };
 		7290483C1C7A988B000A2770 /* NSCalendarAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7290483B1C7A988B000A2770 /* NSCalendarAdditions.swift */; };
 		7290483E1C7A9BD6000A2770 /* ListTodos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7290483D1C7A9BD6000A2770 /* ListTodos.swift */; };
-		72C1D7E61C7D31FC005A7478 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C1D7E51C7D31FC005A7478 /* AppStore.swift */; };
 		72C1D7EF1C7D32AF005A7478 /* Redux.h in Headers */ = {isa = PBXBuildFile; fileRef = 72C1D7EE1C7D32AF005A7478 /* Redux.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		72C1D8011C7D32AF005A7478 /* Redux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C1D7EC1C7D32AF005A7478 /* Redux.framework */; };
 		72C1D8021C7D32AF005A7478 /* Redux.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 72C1D7EC1C7D32AF005A7478 /* Redux.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -94,7 +93,6 @@
 		729048381C7A5D0D000A2770 /* AddTodo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTodo.swift; sourceTree = "<group>"; };
 		7290483B1C7A988B000A2770 /* NSCalendarAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCalendarAdditions.swift; sourceTree = "<group>"; };
 		7290483D1C7A9BD6000A2770 /* ListTodos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTodos.swift; sourceTree = "<group>"; };
-		72C1D7E51C7D31FC005A7478 /* AppStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 		72C1D7EC1C7D32AF005A7478 /* Redux.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Redux.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72C1D7EE1C7D32AF005A7478 /* Redux.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Redux.h; sourceTree = "<group>"; };
 		72C1D7F01C7D32AF005A7478 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -135,6 +133,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		721FDFEF1C7EAA5500C1C008 /* List View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7290481A1C79EC98000A2770 /* ListViewController.swift */,
+			);
+			name = "List View Controller";
+			sourceTree = "<group>";
+		};
 		729047DE1C79E122000A2770 = {
 			isa = PBXGroup;
 			children = (
@@ -182,7 +188,6 @@
 			isa = PBXGroup;
 			children = (
 				729048181C79E7D4000A2770 /* Todo.swift */,
-				72C1D7E51C7D31FC005A7478 /* AppStore.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -209,7 +214,6 @@
 			children = (
 				72C1D8101C7D431F005A7478 /* View Controllers */,
 				729047EA1C79E122000A2770 /* AppDelegate.swift */,
-				7290481A1C79EC98000A2770 /* ListViewController.swift */,
 				729047EE1C79E122000A2770 /* Main.storyboard */,
 				729047F41C79E122000A2770 /* Assets.xcassets */,
 				729047F61C79E122000A2770 /* LaunchScreen.storyboard */,
@@ -255,6 +259,7 @@
 		72C1D8101C7D431F005A7478 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				721FDFEF1C7EAA5500C1C008 /* List View Controller */,
 				72C1D8111C7D432B005A7478 /* Add View Controller */,
 			);
 			name = "View Controllers";
@@ -538,7 +543,6 @@
 				729047F31C79E122000A2770 /* CleanTodo.xcdatamodeld in Sources */,
 				72C3C6EF1C7DE27500A48740 /* AddDismissalTransition.swift in Sources */,
 				7290483E1C7A9BD6000A2770 /* ListTodos.swift in Sources */,
-				72C1D7E61C7D31FC005A7478 /* AppStore.swift in Sources */,
 				7290481D1C79F10B000A2770 /* AddViewController.swift in Sources */,
 				729048131C79E69A000A2770 /* DataStore.swift in Sources */,
 				72C1D8131C7D4357005A7478 /* AddPresentationTransition.swift in Sources */,

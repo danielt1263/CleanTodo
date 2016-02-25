@@ -18,7 +18,7 @@ class ListViewController: UIViewController, Promisable {
 	var dataStore: DataStore!
 	
 	@IBAction func addAction(sender: AnyObject) {
-		appStore.dispatch(AddAction.TapAddButton)
+		addTodo(self)
 	}
 	
 	override func viewDidLoad() {
@@ -35,5 +35,27 @@ class ListViewController: UIViewController, Promisable {
 	
 	var promise: AnyObject {
 		return Promise<Void>()
+	}
+}
+
+
+extension UIViewController {
+	
+	func promisePresentViewController(viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) -> Promise<Void> {
+		return Promise { fulfill, _ in
+			self.presentViewController(viewControllerToPresent, animated: flag) {
+				completion?()
+				fulfill()
+			}
+		}
+	}
+	
+	func promiseDismissViewControllerAnimated(flag: Bool, completion: (() -> Void)?) -> Promise<Void> {
+		return Promise { fulfill, _ in
+			self.dismissViewControllerAnimated(flag) {
+				completion?()
+				fulfill()
+			}
+		}
 	}
 }

@@ -102,7 +102,11 @@
                                                 <action selector="cancelAction:" destination="z12-nt-L1Y" id="zR3-sP-VdO"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="4gU-pq-54F"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="4gU-pq-54F">
+                                            <connections>
+                                                <action selector="saveAction:" destination="z12-nt-L1Y" id="Jrt-57-k1h"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
