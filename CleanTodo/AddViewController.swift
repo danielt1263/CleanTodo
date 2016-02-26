@@ -26,13 +26,21 @@ class AddViewController: UIViewController {
 		modalPresentationStyle = .Custom
 		transitioningDelegate = self
 	}
-
+	
 	func waitForAdd() -> Promise<(name: String, date: NSDate)>  {
 		pendingAdd = Promise<(name: String, date: NSDate)>.pendingPromise()
 		return pendingAdd!.promise
 	}
 	
-	private var pendingAdd: (promise: Promise<(name: String, date: NSDate)>, fulfill: ((name: String, date: NSDate)) -> Void, reject: (ErrorType) -> Void)?
+	func warnUserWithMessage(message: String) -> Promise<Void> {
+		return Promise { fulfill, _ in
+			let alert = UIAlertController(title: "Warning", message: message, preferredStyle: .Alert)
+			alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in fulfill() })
+			presentViewController(alert, animated: true, completion: nil)
+		}
+	}
+	
+	private var pendingAdd: Promise<(name: String, date: NSDate)>.PendingPromise?
 	
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
@@ -45,7 +53,7 @@ class AddViewController: UIViewController {
 	@IBAction func cancelAction(_: AnyObject) {
 		dismiss()
 	}
-
+	
 	@IBAction func saveAction(_: AnyObject) {
 		
 		let name = nameTextField.text ?? ""
@@ -57,12 +65,6 @@ class AddViewController: UIViewController {
 	private func dismiss() {
 		view.endEditing(true)
 		pendingAdd!.reject(AddError.AddCanceled)
-	}
-
-	private func warnUserWithMessage(message: String) {
-		let alert = UIAlertController(title: "Warning", message: message, preferredStyle: .Alert)
-		alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-		presentViewController(alert, animated: true, completion: nil)
 	}
 	
 	private let customPresentAnimationController = AddPresentationTransition()

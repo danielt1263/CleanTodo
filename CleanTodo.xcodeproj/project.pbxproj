@@ -32,6 +32,7 @@
 		72C1D80F1C7D3B63005A7478 /* PresentationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C1D80D1C7D3B63005A7478 /* PresentationState.swift */; };
 		72C1D8131C7D4357005A7478 /* AddPresentationTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C1D8121C7D4357005A7478 /* AddPresentationTransition.swift */; };
 		72C3C6EF1C7DE27500A48740 /* AddDismissalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C3C6EE1C7DE27500A48740 /* AddDismissalTransition.swift */; };
+		72E635541C7FF4780019C8E0 /* PromiseKitAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E635531C7FF4780019C8E0 /* PromiseKitAdditions.swift */; };
 		8FE3876E2B9FC36FA56178C1 /* Pods_CleanTodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 330308C9A0D0BC4EFCEB6DF0 /* Pods_CleanTodo.framework */; };
 		F6299204F4D5DB12815BF38A /* Pods_CleanTodoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA8484985B40A8C535BD41B /* Pods_CleanTodoTests.framework */; };
 /* End PBXBuildFile section */
@@ -101,6 +102,7 @@
 		72C1D80D1C7D3B63005A7478 /* PresentationState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationState.swift; sourceTree = "<group>"; };
 		72C1D8121C7D4357005A7478 /* AddPresentationTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPresentationTransition.swift; sourceTree = "<group>"; };
 		72C3C6EE1C7DE27500A48740 /* AddDismissalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDismissalTransition.swift; sourceTree = "<group>"; };
+		72E635531C7FF4780019C8E0 /* PromiseKitAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromiseKitAdditions.swift; sourceTree = "<group>"; };
 		7F1F7FDCF0AD6F28E8936649 /* Pods-CleanTodoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanTodoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CleanTodoTests/Pods-CleanTodoTests.release.xcconfig"; sourceTree = "<group>"; };
 		9CA8484985B40A8C535BD41B /* Pods_CleanTodoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanTodoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -165,6 +167,7 @@
 		729047E91C79E122000A2770 /* CleanTodo */ = {
 			isa = PBXGroup;
 			children = (
+				72E635521C7FF4650019C8E0 /* PromiseKit Additions */,
 				7290483A1C7A986A000A2770 /* UIKit Additions */,
 				7290480D1C79E34E000A2770 /* Entities */,
 				7290480F1C79E360000A2770 /* Use Cases */,
@@ -273,6 +276,14 @@
 				72C3C6EE1C7DE27500A48740 /* AddDismissalTransition.swift */,
 			);
 			name = "Add View Controller";
+			sourceTree = "<group>";
+		};
+		72E635521C7FF4650019C8E0 /* PromiseKit Additions */ = {
+			isa = PBXGroup;
+			children = (
+				72E635531C7FF4780019C8E0 /* PromiseKitAdditions.swift */,
+			);
+			name = "PromiseKit Additions";
 			sourceTree = "<group>";
 		};
 		AA19BAC5A38ACF21E9742327 /* Pods */ = {
@@ -547,6 +558,7 @@
 				729048131C79E69A000A2770 /* DataStore.swift in Sources */,
 				72C1D8131C7D4357005A7478 /* AddPresentationTransition.swift in Sources */,
 				729047EB1C79E122000A2770 /* AppDelegate.swift in Sources */,
+				72E635541C7FF4780019C8E0 /* PromiseKitAdditions.swift in Sources */,
 				7290483C1C7A988B000A2770 /* NSCalendarAdditions.swift in Sources */,
 				729048171C79E7A7000A2770 /* TodoItem.swift in Sources */,
 				729048391C7A5D0D000A2770 /* AddTodo.swift in Sources */,
