@@ -10,19 +10,19 @@ import UIKit
 
 class AddDismissalTransition: NSObject, UIViewControllerAnimatedTransitioning {
 	
-	func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+	func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
 		return 0.72
 	}
 	
-	func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-		let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as! AddViewController
-		let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+	func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+		let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! AddViewController
+		let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
 
 		let finalCenter = CGPoint(x: toVC.view.bounds.width / 2.0, y: (fromVC.view.bounds.height / 2.0) - fromVC.view.bounds.height - 20.0)
 		let blurView = fromVC.transitioningBackgroundView
-		UIView.animateWithDuration(self.transitionDuration(transitionContext), delay: 0, usingSpringWithDamping: 0.64, initialSpringVelocity: 0.22, options: [.CurveEaseIn, .AllowAnimatedContent], animations: { () -> Void in
+		UIView.animate(withDuration: self.transitionDuration(using: transitionContext), delay: 0, usingSpringWithDamping: 0.64, initialSpringVelocity: 0.22, options: [.curveEaseIn, .allowAnimatedContent], animations: { () -> Void in
 			fromVC.view.center = finalCenter
-			blurView.alpha = 0
+			blurView?.alpha = 0
 			}, completion: { _ in
 				fromVC.view.removeFromSuperview()
 				transitionContext.completeTransition(true)

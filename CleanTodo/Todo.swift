@@ -11,5 +11,5 @@ import Foundation
 
 struct Todo {
 	var name: String
-	var date: NSDate
+	var date: Date
 }

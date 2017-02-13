@@ -9,11 +9,7 @@
 import PromiseKit
 
 
-extension Promise {
-	typealias PendingPromise = (promise: Promise<T>, fulfill: (T) -> Void, reject: (ErrorType) -> Void)
-}
-
-func promiseWhile<T>(pred: (T) -> Bool, body: () -> Promise<T>, fail: (() -> Promise<Void>)? = nil) -> Promise<T> {
+func promiseWhile<T>(_ pred: @escaping (T) -> Bool, body: @escaping () -> Promise<T>, fail: (() -> Promise<Void>)? = nil) -> Promise<T> {
 	return Promise { fulfill, reject in
 		func loop() {
 			body().then { (t) -> Void in
@@ -25,14 +21,14 @@ func promiseWhile<T>(pred: (T) -> Bool, body: () -> Promise<T>, fail: (() -> Pro
 						fail().then {
 							loop()
 						}
-						.error { reject($0) }
+						.catch { reject($0) }
 					}
 					else {
 						loop()
 					}
 				}
 			}
-			.error { reject($0) }
+			.catch { reject($0) }
 		}
 		loop()
 	}

@@ -10,8 +10,8 @@ import UIKit
 import PromiseKit
 
 
-enum AddError: ErrorType {
-	case AddCanceled
+enum AddError: Error {
+	case addCanceled
 }
 
 class AddViewController: UIViewController {
@@ -23,30 +23,30 @@ class AddViewController: UIViewController {
 	
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
-		modalPresentationStyle = .Custom
+		modalPresentationStyle = .custom
 		transitioningDelegate = self
 	}
 	
-	func waitForAdd() -> Promise<(name: String, date: NSDate)>  {
-		pendingAdd = Promise<(name: String, date: NSDate)>.pendingPromise()
+	func waitForAdd() -> Promise<(name: String, date: Date)>  {
+		pendingAdd = Promise<(name: String, date: Date)>.pending()
 		return pendingAdd!.promise
 	}
 	
-	func warnUserWithMessage(message: String) -> Promise<Void> {
+	func warnUserWithMessage(_ message: String) -> Promise<Void> {
 		return Promise { fulfill, _ in
-			let alert = UIAlertController(title: "Warning", message: message, preferredStyle: .Alert)
-			alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in fulfill() })
-			presentViewController(alert, animated: true, completion: nil)
+			let alert = UIAlertController(title: "Warning", message: message, preferredStyle: .alert)
+			alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in fulfill() })
+			present(alert, animated: true, completion: nil)
 		}
 	}
 	
-	private var pendingAdd: Promise<(name: String, date: NSDate)>.PendingPromise?
+	fileprivate var pendingAdd: Promise<(name: String, date: Date)>.PendingTuple?
 	
-	override func viewDidAppear(animated: Bool) {
+	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		let recognizer = UITapGestureRecognizer(target: self, action: Selector("dismiss"))
+		let recognizer = UITapGestureRecognizer(target: self, action: Selector(("dismiss")))
 		transitioningBackgroundView.addGestureRecognizer(recognizer)
-		transitioningBackgroundView.userInteractionEnabled = true
+		transitioningBackgroundView.isUserInteractionEnabled = true
 		nameTextField.becomeFirstResponder()
 	}
 	
@@ -62,21 +62,21 @@ class AddViewController: UIViewController {
 		pendingAdd!.fulfill((name, date))
 	}
 	
-	private func dismiss() {
+	fileprivate func dismiss() {
 		view.endEditing(true)
-		pendingAdd!.reject(AddError.AddCanceled)
+		pendingAdd!.reject(AddError.addCanceled)
 	}
 	
-	private let customPresentAnimationController = AddPresentationTransition()
+	fileprivate let customPresentAnimationController = AddPresentationTransition()
 }
 
 extension AddViewController: UIViewControllerTransitioningDelegate {
 	
-	func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+	func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 		return customPresentAnimationController
 	}
 	
-	func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+	func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 		return AddDismissalTransition()
 	}
 }

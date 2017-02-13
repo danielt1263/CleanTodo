@@ -1,29 +1,22 @@
 PODS:
-  - OMGHTTPURLRQ (3.1.1):
-    - OMGHTTPURLRQ/RQ (= 3.1.1)
-  - OMGHTTPURLRQ/FormURLEncode (3.1.1)
-  - OMGHTTPURLRQ/RQ (3.1.1):
-    - OMGHTTPURLRQ/FormURLEncode
-    - OMGHTTPURLRQ/UserAgent
-  - OMGHTTPURLRQ/UserAgent (3.1.1)
-  - PromiseKit (3.0.2):
-    - PromiseKit/Foundation (= 3.0.2)
-    - PromiseKit/QuartzCore (= 3.0.2)
-    - PromiseKit/UIKit (= 3.0.2)
-  - PromiseKit/CorePromise (3.0.2)
-  - PromiseKit/Foundation (3.0.2):
-    - OMGHTTPURLRQ (~> 3.1.0)
+  - PromiseKit (4.1.7):
+    - PromiseKit/Foundation (= 4.1.7)
+    - PromiseKit/QuartzCore (= 4.1.7)
+    - PromiseKit/UIKit (= 4.1.7)
+  - PromiseKit/CorePromise (4.1.7)
+  - PromiseKit/Foundation (4.1.7):
     - PromiseKit/CorePromise
-  - PromiseKit/QuartzCore (3.0.2):
+  - PromiseKit/QuartzCore (4.1.7):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (3.0.2):
+  - PromiseKit/UIKit (4.1.7):
     - PromiseKit/CorePromise
 
 DEPENDENCIES:
-  - PromiseKit (~> 3.0)
+  - PromiseKit (~> 4.1)
 
 SPEC CHECKSUMS:
-  OMGHTTPURLRQ: 633f98ee745aeda02345935a52eec1784cddb589
-  PromiseKit: ab1a380f7a30cf8cce663a2411e8b3580b10313d
+  PromiseKit: 779f2e41faf62d854e7593026ddbcb0bb5c5002d
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 1f893f3ae26f6d5d7e4cf1e14ec8d40c9210ffc4
+
+COCOAPODS: 1.2.0.beta.3

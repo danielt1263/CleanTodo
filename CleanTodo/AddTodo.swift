@@ -10,32 +10,32 @@ import UIKit
 import PromiseKit
 
 
-func addTodo(viewController: UIViewController) {
-	let addController = viewController.storyboard!.instantiateViewControllerWithIdentifier("AddViewController") as! AddViewController
+func addTodo(_ viewController: UIViewController) {
+	let addController = viewController.storyboard!.instantiateViewController(withIdentifier: "AddViewController") as! AddViewController
 	firstly {
-		viewController.promisePresentViewController(addController, animated: true, completion: nil)
+		viewController.present(addController, animated: true)
+	}
+	.then {
+		promiseWhile({ (name, date) in name.isEmpty }, body: addController.waitForAdd) { addController.warnUserWithMessage("Name must not be empty.") }
+	}
+	.then { name, date in
+		
+		print("name: \(name), date: \(date)")
+	}
+	.then {
+		addController.dismiss(animated: true)
+	}
+	.catch { error in
+		switch error {
+		case AddError.addCanceled:
+			let _ = addController.dismiss(animated: true)
+		default:
+			break
 		}
-		.then {
-			promiseWhile({ (name, date) in name.isEmpty }, body: addController.waitForAdd) { addController.warnUserWithMessage("Name must not be empty.") }
-		}
-		.then { name, date in
-			
-			print("name: \(name), date: \(date)")
-		}
-		.then {
-			addController.promiseDismissViewControllerAnimated(true, completion: nil)
-		}
-		.error { error in
-			switch error {
-			case AddError.AddCanceled:
-				addController.promiseDismissViewControllerAnimated(true, completion: nil)
-			default:
-				break
-			}
 	}
 }
 
-private func validateName(name: String, date: NSDate) -> Bool {
+private func validateName(_ name: String, date: Date) -> Bool {
 	return !name.isEmpty
 }
 

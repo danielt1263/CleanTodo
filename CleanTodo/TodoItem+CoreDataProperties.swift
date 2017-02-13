@@ -15,6 +15,6 @@ import CoreData
 extension TodoItem {
 
     @NSManaged var name: String?
-    @NSManaged var date: NSDate?
+    @NSManaged var date: Date?
 
 }

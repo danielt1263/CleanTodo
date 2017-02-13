@@ -14,50 +14,51 @@ public protocol Action {
 }
 
 
-public class Store<State> {
+open class Store<State> {
 	
-	public typealias Observer = (state: State) -> Void
+	public typealias Observer = (_ state: State) -> Void
 	public typealias Unsubscriber = () -> Void
-	public typealias Reducer = (inout state: State, action: Action) -> Void
-	public typealias Dispatcher = (action: Action) -> Void
-	public typealias Middleware = (next: Dispatcher, state: () -> State) -> Dispatcher
+	public typealias Reducer = (_ state: inout State, _ action: Action) -> Void
+	public typealias Dispatcher = (_ action: Action) -> Void
+	public typealias Middleware = (_ next: Dispatcher, _ state: () -> State) -> Dispatcher
 	
-	public init(state: State, reducer: Reducer, middleware: [Middleware] = []) {
+	public init(state: State, reducer: @escaping Reducer, middleware: [Middleware] = []) {
 		currentState = state
 		self.reducer = reducer
-		dispatcher = middleware.reverse().reduce(self._dispatch) { (dispatcher: Dispatcher, middleware: Middleware) -> Dispatcher in
-			middleware(next: dispatcher, state: { self.currentState })
+		dispatcher = middleware.reversed().reduce(self._dispatch) { (dispatcher: Dispatcher, middleware: Middleware) -> Dispatcher in
+			middleware(dispatcher, { self.currentState })
 		}
 	}
 	
-	public func dispatch(action: Action) {
-		self.dispatcher(action: action)
+	open func dispatch(_ action: Action) {
+		self.dispatcher(action)
 	}
 	
-	public func subscribe(observer: Observer) -> Unsubscriber {
-		let id = uniqueId++
+	open func subscribe(_ observer: @escaping Observer) -> Unsubscriber {
+		let id = uniqueId + 1
+		uniqueId = id
 		subscribers[id] = observer
 		let dispose = { [weak self] () -> Void in
-			self?.subscribers.removeValueForKey(id)
+			self?.subscribers.removeValue(forKey: id)
 		}
-		observer(state: currentState)
+		observer(currentState)
 		return dispose
 	}
 	
-	private func _dispatch(action: Action) {
+	fileprivate func _dispatch(_ action: Action) {
 		guard !isDispatching else { fatalError("Cannot dispatch in the middle of a dispatch") }
 		isDispatching = true
-		reducer(state: &currentState, action: action)
+		reducer(&currentState, action)
 		for subscriber in subscribers.values {
-			subscriber(state: currentState)
+			subscriber(currentState)
 		}
 		isDispatching = false
 	}
 	
-	private var isDispatching = false
-	private var currentState: State
-	private var uniqueId = 0
-	private var reducer: Reducer
-	private var subscribers: [Int: Observer] = [:]
-	private var dispatcher: Dispatcher = { _ in }
+	fileprivate var isDispatching = false
+	fileprivate var currentState: State
+	fileprivate var uniqueId = 0
+	fileprivate var reducer: Reducer
+	fileprivate var subscribers: [Int: Observer] = [:]
+	fileprivate var dispatcher: Dispatcher = { _ in }
 }

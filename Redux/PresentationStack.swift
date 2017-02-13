@@ -9,19 +9,19 @@
 import UIKit
 
 
-public class PresentationObserver {
+open class PresentationObserver {
 	
 	public init(rootViewController: UIViewController) {
 		self.rootViewController = rootViewController
 	}
 	
-	public func updateWithState(state: PresentationState) {
+	open func updateWithState(_ state: PresentationState) {
 		if let index = commonChildIndex(viewControllers.map { self.properName[$0.nibName!]! }, rhs: state.viewControllerIDs) {
 			if state.viewControllerIDs.count == index + 1 {
 				dismissAnimatedFrom(viewControllers[index])
 			}
 			else {
-				viewControllers[index].dismissViewControllerAnimated(false, completion: nil)
+				viewControllers[index].dismiss(animated: false, completion: nil)
 				loadNewViewControllersFromViewController(viewControllers[index], viewControllerIds: Array(state.viewControllerIDs[index + 1 ..< state.viewControllerIDs.count]))
 			}
 		}
@@ -32,35 +32,35 @@ public class PresentationObserver {
 				}
 			}
 			else {
-				rootViewController.dismissViewControllerAnimated(false, completion: nil)
+				rootViewController.dismiss(animated: false, completion: nil)
 				loadNewViewControllersFromViewController(rootViewController, viewControllerIds: state.viewControllerIDs)
 			}
 		}
 	}
 
-	private func loadNewViewControllersFromViewController(baseViewController: UIViewController, viewControllerIds: [String]) {
+	fileprivate func loadNewViewControllersFromViewController(_ baseViewController: UIViewController, viewControllerIds: [String]) {
 		var presentingViewController = baseViewController
 		for viewControllerId in viewControllerIds {
 			if viewControllerId != viewControllerIds.last! {
-				let newViewController = rootViewController.storyboard!.instantiateViewControllerWithIdentifier(viewControllerId)
+				let newViewController = rootViewController.storyboard!.instantiateViewController(withIdentifier: viewControllerId)
 				properName[newViewController.nibName!] = viewControllerId
-				presentingViewController.presentViewController(newViewController, animated: false, completion: nil)
+				presentingViewController.present(newViewController, animated: false, completion: nil)
 				presentingViewController = newViewController
 			}
 			else {
-				let newViewController = rootViewController.storyboard!.instantiateViewControllerWithIdentifier(viewControllerId)
+				let newViewController = rootViewController.storyboard!.instantiateViewController(withIdentifier: viewControllerId)
 				properName[newViewController.nibName!] = viewControllerId
 				presentAnimatedFrom(presentingViewController, toViewController: newViewController)
 			}
 		}
 	}
 	
-	private let rootViewController: UIViewController
-	private let waitForRoutingCompletionQueue = dispatch_queue_create("WaitForRoutingCompletionQueue", nil)
+	fileprivate let rootViewController: UIViewController
+	fileprivate let waitForRoutingCompletionQueue = DispatchQueue(label: "WaitForRoutingCompletionQueue", attributes: [])
 	
-	private var properName: [String: String] = [:]
+	fileprivate var properName: [String: String] = [:]
 	
-	private var viewControllers: [UIViewController] {
+	fileprivate var viewControllers: [UIViewController] {
 		var result: [UIViewController] = []
 		var viewController = rootViewController
 		while let presentedViewController = viewController.presentedViewController {
@@ -70,34 +70,34 @@ public class PresentationObserver {
 		return result
 	}
 
-	private func presentAnimatedFrom(viewController: UIViewController, toViewController: UIViewController) {
-		let semaphore = dispatch_semaphore_create(0)
-		dispatch_async(waitForRoutingCompletionQueue) {
-			dispatch_async(dispatch_get_main_queue()) {
-				viewController.presentViewController(toViewController, animated: true) {
-					dispatch_semaphore_signal(semaphore)
+	fileprivate func presentAnimatedFrom(_ viewController: UIViewController, toViewController: UIViewController) {
+		let semaphore = DispatchSemaphore(value: 0)
+		waitForRoutingCompletionQueue.async {
+			DispatchQueue.main.async {
+				viewController.present(toViewController, animated: true) {
+					semaphore.signal()
 				}
 			}
-			let waitUntil = dispatch_time(DISPATCH_TIME_NOW, Int64(3 * Double(NSEC_PER_SEC)))
-			dispatch_semaphore_wait(semaphore, waitUntil)
+			let waitUntil = DispatchTime.now() + Double(Int64(3 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+			semaphore.wait(timeout: waitUntil)
 		}
 	}
 	
-	private func dismissAnimatedFrom(viewController: UIViewController) {
-		let semaphore = dispatch_semaphore_create(0)
-		dispatch_async(waitForRoutingCompletionQueue) {
-			dispatch_async(dispatch_get_main_queue()) {
-				viewController.dismissViewControllerAnimated(true) {
-					dispatch_semaphore_signal(semaphore)
+	fileprivate func dismissAnimatedFrom(_ viewController: UIViewController) {
+		let semaphore = DispatchSemaphore(value: 0)
+		waitForRoutingCompletionQueue.async {
+			DispatchQueue.main.async {
+				viewController.dismiss(animated: true) {
+					semaphore.signal()
 				}
 			}
-			let waitUntil = dispatch_time(DISPATCH_TIME_NOW, Int64(3 * Double(NSEC_PER_SEC)))
-			dispatch_semaphore_wait(semaphore, waitUntil)
+			let waitUntil = DispatchTime.now() + Double(Int64(3 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+			semaphore.wait(timeout: waitUntil)
 		}
 	}
 }
 
-internal func commonChildIndex<T: Equatable>(lhs: [T], rhs: [T]) -> Int? {
+internal func commonChildIndex<T: Equatable>(_ lhs: [T], rhs: [T]) -> Int? {
 	guard !lhs.isEmpty && !rhs.isEmpty else { return nil }
 	
 	for i in 0 ..< min(lhs.count, rhs.count) {

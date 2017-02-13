@@ -11,7 +11,7 @@ public struct PresentationState {
 	
 	public init() { }
 	
-	public mutating func pushViewController(viewController: String) {
+	public mutating func pushViewController(_ viewController: String) {
 		viewControllerIDs.append(viewController)
 	}
 	
@@ -23,5 +23,5 @@ public struct PresentationState {
 		viewControllerIDs = []
 	}
 	
-	public private (set) var viewControllerIDs: [String] = []
+	public fileprivate (set) var viewControllerIDs: [String] = []
 }

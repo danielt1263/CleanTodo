@@ -9,39 +9,39 @@
 import Foundation
 
 
-extension NSCalendar {
+extension Calendar {
 	
-	func dateForEndOfDay(date: NSDate) -> NSDate {
-		let dayComponent = NSDateComponents()
+	func dateForEndOfDay(_ date: Date) -> Date {
+		var dayComponent = DateComponents()
 		dayComponent.day = 1
-		let nextDay = dateByAddingComponents(dayComponent, toDate: dateForBeginningOfDay(date), options: NSCalendarOptions(rawValue: 0))!
-		return nextDay.dateByAddingTimeInterval(-1)
+		let nextDay = self.date(byAdding: dayComponent, to: dateForBeginningOfDay(date))!
+		return nextDay.addingTimeInterval(-1)
 	}
 	
-	func dateForEndOfFollowingWeekWithDate(date: NSDate) -> NSDate {
+	func dateForEndOfFollowingWeekWithDate(_ date: Date) -> Date {
 		let endOfWeek = dateForEndOfWeekWithDate(date)
-		let nextWeekComponent = NSDateComponents()
+		var nextWeekComponent = DateComponents()
 		nextWeekComponent.weekOfYear = 1
-		return dateByAddingComponents(nextWeekComponent, toDate: endOfWeek, options: NSCalendarOptions(rawValue: 0))!
+		return self.date(byAdding: nextWeekComponent, to: endOfWeek)!
 	}
 
-	func dateForBeginningOfDay(date: NSDate) -> NSDate {
-		let components = self.components([.Year, .Month, .Day], fromDate: date)
-		return dateFromComponents(components)!
+	func dateForBeginningOfDay(_ date: Date) -> Date {
+		let components = (self as NSCalendar).components([.year, .month, .day], from: date)
+		return self.date(from: components)!
 	}
 	
-	func dateForEndOfWeekWithDate(date: NSDate) -> NSDate {
+	func dateForEndOfWeekWithDate(_ date: Date) -> Date {
 		let daysRemainingThisWeek = daysRemainingInWeekWithDate(date)
-		let remainingDaysComponent = NSDateComponents()
+		var remainingDaysComponent = DateComponents()
 		remainingDaysComponent.day = daysRemainingThisWeek
-		return dateByAddingComponents(remainingDaysComponent, toDate: date, options: NSCalendarOptions(rawValue: 0))!
+		return self.date(byAdding: remainingDaysComponent, to: date)!
 	}
 	
-	func daysRemainingInWeekWithDate(date: NSDate) -> Int {
-		let weekdayComponent = components([.Weekday], fromDate: date)
-		let daysRange = rangeOfUnit(.Weekday, inUnit: .WeekOfYear, forDate: date)
-		let daysPerWeek = daysRange.length
-		return daysPerWeek - weekdayComponent.weekday
+	func daysRemainingInWeekWithDate(_ date: Date) -> Int {
+		let weekdayComponent = dateComponents([.weekday], from: date)
+		let daysRange = range(of: .weekday, in: .weekOfYear, for: date)!
+		let daysPerWeek = daysRange.upperBound - daysRange.lowerBound
+		return daysPerWeek - weekdayComponent.weekday!
 	}
 	
 }

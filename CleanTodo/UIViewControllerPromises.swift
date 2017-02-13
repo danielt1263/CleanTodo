@@ -7,8 +7,24 @@
 //
 
 import UIKit
+import PromiseKit
 
 
 extension UIViewController {
 	
+	func present(_ viewControllerToPresent: UIViewController, animated: Bool) -> Promise<Void> {
+		return Promise { fulfill, _ in
+			self.present(viewControllerToPresent, animated: animated, completion: {
+				fulfill()
+			})
+		}
+	}
+	
+	func dismiss(animated: Bool) -> Promise<Void> {
+		return Promise { fulfill, _ in
+			self.dismiss(animated: animated, completion: {
+				fulfill()
+			})
+		}
+	}
 }
